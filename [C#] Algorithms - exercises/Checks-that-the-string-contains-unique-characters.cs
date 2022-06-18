@@ -13,12 +13,15 @@ namespace ConsoleApp
             for (int numberChar = 0; numberChar <= 255; numberChar++)
             {
                 repeatedChar = true;
-                for (int i = 0; i <= strOfChar.Length - 1; i++)
+                for (int i = 0; i < strOfChar.Length; i++)
                 {
-                    if (strOfChar[i] == (char)numberChar && repeatedChar == false)
-                        return repeatedChar;
-                    if (strOfChar[i] == (char)numberChar && repeatedChar == true)
-                        repeatedChar = false;                    
+                    if (strOfChar[i] == (char)numberChar)
+                    {
+                        if (!repeatedChar)
+                            return repeatedChar;
+                        else if (repeatedChar)
+                            repeatedChar = false;
+                    }
                 }
             }
             return repeatedChar;
@@ -26,7 +29,7 @@ namespace ConsoleApp
 
         static void Main(string[] args)
         {
-            string strOfChar = "abcdefgah";
+            string strOfChar = "abcdefgha";
             if (IsUniqueChar(strOfChar))
                 Console.WriteLine("Litery się nie powtarzają.");
             else
