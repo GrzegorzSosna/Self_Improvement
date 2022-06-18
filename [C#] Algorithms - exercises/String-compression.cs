@@ -25,7 +25,6 @@ namespace ConsoleApp
                     strResult.Append(strBufor + count.ToString());                
                     count = 1;                 
                 }
-
                 if (i == (strOfChar.Length - 1))
                     strResult.Append(strOfChar[i] + count.ToString());
 
