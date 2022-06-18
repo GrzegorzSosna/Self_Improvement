@@ -10,7 +10,7 @@ namespace ConsoleApp
         static bool IsUniqueChar(string strOfChar)
         {
             bool repeatedChar = true;
-            for(int numberChar = 0; numberChar <= 255; numberChar++)
+            for (int numberChar = 0; numberChar <= 255; numberChar++)
             {
                 repeatedChar = true;
                 for (int i = 0; i <= strOfChar.Length - 1; i++)
