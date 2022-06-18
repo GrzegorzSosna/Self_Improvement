@@ -13,32 +13,31 @@ namespace ConsoleApp
         static String StrCompression(string strOfChar)
         {
             StringBuilder strResult = new StringBuilder();
-            char strBufor = strOfChar[0];
             int count = 1;
 
-            for (int i = 1; i <= strOfChar.Length - 1; i++)
+            for (int i = 1; i < strOfChar.Length; i++)
             {
-                if (strOfChar[i] == strBufor)
+                if (strOfChar[i] == strOfChar[i - 1])
                     count++;
-                else 
+                else
                 {
-                    strResult.Append(strBufor + count.ToString());                
-                    count = 1;                 
+                    strResult.Append(strOfChar[i - 1] + count.ToString());
+                    count = 1;
                 }
+
                 if (i == (strOfChar.Length - 1))
                     strResult.Append(strOfChar[i] + count.ToString());
-
-                strBufor = strOfChar[i];
             }
+			
             if (strOfChar.Length <= strResult.Length)
                 return strOfChar;
-            else 
+            else
                 return strResult.ToString();
         }
 
         static void Main(string[] args)
         {
-            string strOfChar = "aaabnmmmm";
+            string strOfChar = "abcdddddd";
             Console.WriteLine("Przed kompresją : " + strOfChar);
             Console.WriteLine("Po kompresji : " + StrCompression(strOfChar));
         }
