@@ -1,7 +1,3 @@
-/* Napisać program sortujący wprowadzane z klawiatury liczby całkowite rosnąco. Program powinien zapytać 
-użytkownika o liczbę elementów do wprowadzenia <1,10>, zweryfikować wprowadzoną liczbę, wczytać liczby i 
-wyprowadzić posortowane elementy. Obsłużyć wyjątki. */
-
 using System;
 
 namespace ConsoleApp
