@@ -3,30 +3,34 @@
 
 using System;
 
-namespace ConsoleApp
+namespace ConsoleApp3
 {
     class Program
     {
-        static bool IsUniqueChar(string word)
+        static bool IsUniqueChar(string strOfChar)
         {
-            bool repeatedChar = false;
+            bool repeatedChar = true;
             for(int numberChar = 0; numberChar <= 255; numberChar++)
             {
-                for(int i = 0; i <= word.Length - 1; i++)
+                repeatedChar = true;
+                for (int i = 0; i <= strOfChar.Length - 1; i++)
                 {
-                    if (word[i] == (char)numberChar && repeatedChar == false)
-                        repeatedChar = true;
-                    else if (word[i] == (char)numberChar) 
-                        repeatedChar = false;
+                    if (strOfChar[i] == (char)numberChar && repeatedChar == false)
+                        return repeatedChar;
+                    if (strOfChar[i] == (char)numberChar && repeatedChar == true)
+                        repeatedChar = false;                    
                 }
             }
-             return repeatedChar;
+            return repeatedChar;
         }
-		
+
         static void Main(string[] args)
         {
-                string word = "abcdefga";
-                Console.WriteLine(IsUniqueChar(word));           
+            string strOfChar = "abcdefgah";
+            if (IsUniqueChar(strOfChar))
+                Console.WriteLine("Litery się nie powtarzają.");
+            else
+                Console.WriteLine("Litery się powtarzają.");
         }
     }
 }
