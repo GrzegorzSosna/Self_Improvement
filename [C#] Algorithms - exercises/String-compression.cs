@@ -24,11 +24,10 @@ namespace ConsoleApp
                     strResult.Append(strOfChar[i - 1] + count.ToString());
                     count = 1;
                 }
-
                 if (i == (strOfChar.Length - 1))
                     strResult.Append(strOfChar[i] + count.ToString());
             }
-			
+		
             if (strOfChar.Length <= strResult.Length)
                 return strOfChar;
             else
