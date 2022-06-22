@@ -15,7 +15,8 @@ namespace ConsoleApp
             if (layer % 2 != 0)
                 layer++;
             int last = squareSize - 1;
-
+            // I implemented the square rotation in such a way that I copied the top edge to the buffer, then the left edge to the top, 
+            // bottom to left, etc. I start copying from the outermost layer and go to the inside.
             for (int first = 0; first < layer; first++)
             {
                 for (int q = first; q < last - first; q++)
