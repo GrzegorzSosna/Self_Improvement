@@ -48,7 +48,6 @@ namespace ConsoleApp
             Console.WriteLine($"The item has been removed from the stack {numberStacks}.\n");
         }
 
-
         static void Main(string[] args)
         {
             uint sizeStacks = 5; // stack memory area
