@@ -28,7 +28,7 @@ namespace ConsoleApp
             Console.WriteLine();
         }
 
-        static void add(int[] stacks, int[] topStacks, int numberStacks, uint sizeStacks, int value)
+        static void push(int[] stacks, int[] topStacks, int numberStacks, uint sizeStacks, int value)
         {
             if (topStacks[numberStacks - 1] == sizeStacks - 1)
                 throw new ArgumentException("\nThe stack is full. You cannot add any more items.\n");
@@ -38,7 +38,7 @@ namespace ConsoleApp
             Console.WriteLine($"The item has been added to the stack {numberStacks}.\n");
         }
 
-        static void remove(int[] stacks, int[] topStacks, int numberStacks)
+        static void pop(int[] stacks, int[] topStacks, int numberStacks)
         {
             if (topStacks[numberStacks - 1] == -1)
                 throw new ArgumentException("\nThe stack is empty. You have nothing to delete.\n");
@@ -50,17 +50,17 @@ namespace ConsoleApp
 
         static void Main(string[] args)
         {
-            uint sizeStacks = 5; // stack memory area
+            uint sizeStacks = 10; // stack memory area
             int[] stacks = new int[sizeStacks * 3];
             int[] topStacks = new int[3] { -1, -1, -1 };
             int numberStacks = 0, value = 0;
 
             while (true)
             {
-                Console.Write("(p) peek, (a) add, (r) remove : ");
+                Console.Write("(a) peek, (b) push, (c) pop : ");
                 string choice = Console.ReadLine();
 
-                if (choice == "p")
+                if (choice == "a")
                 {
                     try
                     {
@@ -76,7 +76,7 @@ namespace ConsoleApp
                     peek(stacks, topStacks, numberStacks);
                 }
 
-                if (choice == "a")
+                if (choice == "b")
                 {
                     try
                     {
@@ -86,7 +86,7 @@ namespace ConsoleApp
                             throw new ArgumentException("\nEnter a number from 1 to 3.\n");
                         Console.Write("Enter the value of the item : ");
                         value = int.Parse(Console.ReadLine());
-                        add(stacks, topStacks, numberStacks, sizeStacks, value);
+                        push(stacks, topStacks, numberStacks, sizeStacks, value);
                     }
                     catch (ArgumentException e)
                     {
@@ -95,10 +95,10 @@ namespace ConsoleApp
                     catch (Exception)
                     {
                         Console.WriteLine("\nYou entered the wrong character.\n");
-                    }                 
+                    }
                 }
 
-                if (choice == "r")
+                if (choice == "c")
                 {
                     try
                     {
@@ -106,7 +106,7 @@ namespace ConsoleApp
                         numberStacks = int.Parse(Console.ReadLine());
                         if (numberStacks < 1 || numberStacks > 3)
                             throw new ArgumentException("\nEnter a number from 1 to 3.\n");
-                        remove(stacks, topStacks, numberStacks);
+                        pop(stacks, topStacks, numberStacks);
                     }
                     catch (ArgumentException e)
                     {
