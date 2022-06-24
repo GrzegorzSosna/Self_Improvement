@@ -1,5 +1,5 @@
-// Zad. Zaimplementuj algorytm określający, czy dany łańcuch zawiera tylko niepowtarzające się znaki.
-// Jak wykonasz to zadanie, jeśli nie można stosować dodatkowych struktur danych?
+/* Zad. Zaimplementuj algorytm określający, czy dany łańcuch zawiera tylko niepowtarzające się znaki.
+Jak wykonasz to zadanie, jeśli nie można stosować dodatkowych struktur danych? */
 
 using System;
 
