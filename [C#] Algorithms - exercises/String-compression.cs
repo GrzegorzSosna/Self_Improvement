@@ -1,7 +1,6 @@
-// Zad. Zaimplementuj metodę, która przeprowadza prostą kompresję łańcuchów znaków opartą na zliczaniu 
-// powtarzających się liter. Np. metoda ma przekształcać łańcuch aabcccccaaa na a2b1c5a3. Jesli
-// "skompresowany" łańcuch znaków nie jest mniejszy od wyjściowego, metoda powinna zwracać pierwotny
-// łańcuch.
+/* Zad. Zaimplementuj metodę, która przeprowadza prostą kompresję łańcuchów znaków opartą na zliczaniu powtarzających się liter. 
+Np. metoda ma przekształcać łańcuch aabcccccaaa na a2b1c5a3. Jeśli"skompresowany" łańcuch znaków nie jest mniejszy od wyjściowego, 
+metoda powinna zwracać pierwotny łańcuch. */
 
 using System;
 using System.Text;
