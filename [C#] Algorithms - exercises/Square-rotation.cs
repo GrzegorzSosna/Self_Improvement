@@ -1,5 +1,5 @@
-/* Zad. Dany jest rysunek reprezentowany przez macierz o wymiarach NxN, w którym kazdy piksel jest 
-reprezentowany za pomocą 4 bajtów. Napisz metodę, która rotuje rysunek o 90 stopni. Czy potrafisz
+/* Zad. Dany jest rysunek reprezentowany przez macierz o wymiarach NxN, w którym każdy piksel jest 
+reprezentowany za pomocą czterech bajtów. Napisz metodę, która rotuje rysunek o 90 stopni. Czy potrafisz
 wykonać tę operację w miejscu? */
 
 using System;
