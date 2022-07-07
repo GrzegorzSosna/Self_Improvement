@@ -5,7 +5,6 @@ W pliku numeryKart.txt znajduje się lista 16-cyfrowych numerów kart płatniczy
 2. Cyfry numerów kart od piątej do dwunastej są zastąpione X.
 3. Drugie imię jest pomijane a nazwisko zostaje skrócone do pierwszej litery i za nim jest kropka.
 Fragment pliku, który powinniśmy otrzymać:
-<br>
 ![image](https://user-images.githubusercontent.com/103256053/177726827-21f1eade-efd6-4370-84a9-c8bb41a9a16a.png)
 <br>
 Program powinien działać dla dowolnej liczby wierszy w pliku źródłowym (ale możemy pominąć kwestię maksymalnego rozmiaru bufora). Ścieżki pliku wejściowego i wyjściowego mogą być zaszyte w kodzie. Należy użyć klasy StringBuilder.
