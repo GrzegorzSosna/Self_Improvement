@@ -1,3 +1,4 @@
+Zadania, które wykonywałem na kolokwium w pierwszym semestrze studiów informatycznych. 
 # Zadanie 1
 W pliku numeryKart.txt znajduje się lista 16-cyfrowych numerów kart płatniczych i imion (z ewentualny drugim imieniem) z nazwiskami ich właścicieli. Dane są podane w kolejnych wierszach a numery i imię i nazwisko są oddzielone przecinkiem. Zadanie polega na napisaniu programu, który tworzy plik numeryKartMaskowane.txt z zawartością numeryKart.txt, w którym:
 <br>
