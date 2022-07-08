@@ -11,16 +11,12 @@ namespace ConsoleApp1
         {
             string[] arrayData = new string[lineCounter];
             int line = 0;
-
             try
             {
                 using (StreamReader srcSR = new StreamReader(path))
                 {
                     while (!srcSR.EndOfStream)
-                    {
-                        arrayData[line] = srcSR.ReadLine();
-                        line++;
-                    }
+                        arrayData[line++] = srcSR.ReadLine();
                 }
             }
             catch (Exception e)
