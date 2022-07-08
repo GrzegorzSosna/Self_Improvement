@@ -108,7 +108,7 @@ namespace ConsoleApp1
                 }
             }
             //stp.Stop();
-            //Console.WriteLine("Czas wykonywania w milisekundach: " + stp.ElapsedTicks);
+            //Console.WriteLine("Czas wykonywania w tikach: " + stp.ElapsedTicks);
 
             WriteFile(pathAfter, LineCounter(path), arrayData);
         }
