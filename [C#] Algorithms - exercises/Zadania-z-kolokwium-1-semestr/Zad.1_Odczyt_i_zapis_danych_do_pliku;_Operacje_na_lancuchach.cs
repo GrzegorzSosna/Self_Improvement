@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 
-namespace ConsoleApp1
+namespace Kolokwium
 {
     class Program
     {
@@ -49,7 +49,6 @@ namespace ConsoleApp1
         static int LineCounter(string path)
         {
             int lineCounter = 0;
-
             try
             {
                 using (StreamReader srcSR = new StreamReader(path))
@@ -99,7 +98,7 @@ namespace ConsoleApp1
                     line[2] = null;
                     arrayData[i] = line[0] + " " + line[1];
                 }
-
+                
                 if (line.Length == 2)
                 {
                     line[1] = line[1].Remove(1);
