@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-namespace ConsoleApp1
+namespace Kolokwium
 {
     class Program
     {
@@ -21,7 +21,6 @@ namespace ConsoleApp1
             }
         }
             
-
         static void Main(string[] args)
         {
             string folderZrodlowy = @"C:\TestA";
