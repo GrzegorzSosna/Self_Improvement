@@ -9,3 +9,5 @@ Fragment pliku, który powinniśmy otrzymać:
 ![image](https://user-images.githubusercontent.com/103256053/177726827-21f1eade-efd6-4370-84a9-c8bb41a9a16a.png)
 <br>
 Program powinien działać dla dowolnej liczby wierszy w pliku źródłowym (ale możemy pominąć kwestię maksymalnego rozmiaru bufora). Ścieżki pliku wejściowego i wyjściowego mogą być zaszyte w kodzie. Należy użyć klasy StringBuilder.
+# Zadanie 2
+Napisz procedurę o argumentach folderZrodlowy, folderDocelowy, która będzie przenosić wszystkie pliki z folderu źródłowego do folderu docelowego o ile ich nazwy kończą się na "Maskowane". Nieprzeniesione pliki mają zostać usunięte. Można skorzystać z metod Move/MoveTo klasy FileInfo.
