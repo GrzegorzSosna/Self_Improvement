@@ -26,18 +26,14 @@ namespace Kolokwium
             return arrayData;
         }
 
-        static void WriteFile(string pathAfter, int lineCounter, string[] arrayData)
+        static void WriteFile(string pathAfter, string[] arrayData)
         {
             try
             {
                 using (StreamWriter sw = new StreamWriter(pathAfter))
                 {
-                    string temp;
-                    for (int i = 1; i < lineCounter; i++)
-                    {
-                        temp = arrayData[i];
-                        sw.WriteLine(temp);
-                    }
+                    for (int i = 1; i < arrayData.Length; i++)
+                        sw.WriteLine(arrayData[i]);
                 }
             }
             catch (Exception e)
@@ -79,16 +75,16 @@ namespace Kolokwium
             {
                 // Testy z użyciem Stopwatch wykazały, że użycie StringBuildera w tym przypadku
                 // spowalnia operację na łańcuchach o ok 30-40%        
-                //StringBuilder temp = new StringBuilder(arrayData[i]);
-                //temp = temp.Replace(",", ";");
-                //temp = temp.Remove(4, 8);
-                //temp = temp.Insert(4, "XXXXXXXX");
-                //string[] line = temp.ToString().Split(" ");
-                
-                arrayData[i] = arrayData[i].Replace(",", ";");
-                arrayData[i] = arrayData[i].Remove(4, 8);
-                arrayData[i] = arrayData[i].Insert(4, "XXXXXXXX");
-                string[] line = arrayData[i].Split(" ");
+                StringBuilder temp = new StringBuilder(arrayData[i]);
+                temp = temp.Replace(",", ";");
+                temp = temp.Remove(4, 8);
+                temp = temp.Insert(4, "XXXXXXXX");
+                string[] line = temp.ToString().Split(" ");
+
+                //arrayData[i] = arrayData[i].Replace(",", ";");
+                //arrayData[i] = arrayData[i].Remove(4, 8);
+                //arrayData[i] = arrayData[i].Insert(4, "XXXXXXXX");
+                //string[] line = arrayData[i].Split(" ");
 
                 if (line.Length == 3)
                 {
@@ -98,7 +94,6 @@ namespace Kolokwium
                     line[2] = null;
                     arrayData[i] = line[0] + " " + line[1];
                 }
-                
                 if (line.Length == 2)
                 {
                     line[1] = line[1].Remove(1);
@@ -109,7 +104,7 @@ namespace Kolokwium
             //stp.Stop();
             //Console.WriteLine("Czas wykonywania w tikach: " + stp.ElapsedTicks);
 
-            WriteFile(pathAfter, LineCounter(path), arrayData);
+            WriteFile(pathAfter, arrayData);
         }
     }
 }
