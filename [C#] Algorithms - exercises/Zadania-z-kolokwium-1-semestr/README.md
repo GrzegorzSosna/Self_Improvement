@@ -14,3 +14,11 @@ Program powinien działać dla dowolnej liczby wierszy w pliku źródłowym (ale
 ⬇️<b> Zadanie 2 </b>⬇️
 <br><br>
 Napisz procedurę o argumentach folderZrodlowy, folderDocelowy, która będzie przenosić wszystkie pliki z folderu źródłowego do folderu docelowego o ile ich nazwy kończą się na "Maskowane". Nieprzeniesione pliki mają zostać usunięte. Można skorzystać z metod Move/MoveTo klasy FileInfo.
+<br><br><br>
+⬇️<b> Zadanie 3 </b>⬇️
+<br><br>
+Napisz program zapisujący do dwóch zmiennych string aktualną datę i czas w dwóch różnych formatach. Następnie napisz kod pozwalający wypisać na ekran najdłuższy wspólny fragment obu ciągów tekstowych. Przykład:
+![image](https://user-images.githubusercontent.com/103256053/178202760-1d089bf1-1760-475c-9beb-33c5d7db2b73.png)
+
+
+
