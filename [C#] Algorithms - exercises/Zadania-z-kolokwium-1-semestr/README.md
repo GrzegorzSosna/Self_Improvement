@@ -18,7 +18,6 @@ Napisz procedurę o argumentach folderZrodlowy, folderDocelowy, która będzie p
 ⬇️<b> Zadanie 3 </b>⬇️
 <br><br>
 Napisz program zapisujący do dwóch zmiennych string aktualną datę i czas w dwóch różnych formatach. Następnie napisz kod pozwalający wypisać na ekran najdłuższy wspólny fragment obu ciągów tekstowych. Przykład:
+
 ![image](https://user-images.githubusercontent.com/103256053/178202760-1d089bf1-1760-475c-9beb-33c5d7db2b73.png)
-
-
-
+<br>
