@@ -1,4 +1,4 @@
-/* Napisz metodę, która zastępuje wszystkie spacje w łańcuchu znaków sekwencją %20. Przyjmij, że na
+/* Zad. Napisz metodę, która zastępuje wszystkie spacje w łańcuchu znaków sekwencją %20. Przyjmij, że na
 końcu łańcucha dostępne jest miejsce na dodatkowe znaki, a także, że znasz prawdziwą długość łańcucha.
 Jeżeli implementujesz rozwiązanie w Javie, zastosuj tablicę znaków, aby móc wykonać operację w miejscu
 (bez kopiowania łańcuchów) */
