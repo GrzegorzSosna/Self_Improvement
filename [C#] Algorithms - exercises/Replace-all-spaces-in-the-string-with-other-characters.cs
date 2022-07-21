@@ -32,12 +32,12 @@ namespace ConsoleApp
                     arrayText[lengthModifiedText - 1] = '0';
                     arrayText[lengthModifiedText - 2] = '2';
                     arrayText[lengthModifiedText - 3] = '%';
-					lengthModifiedText -= 3;
+		    lengthModifiedText -= 3;
                 }
                 else
                 {
                     arrayText[lengthModifiedText - 1] = arrayText[i];
-					lengthModifiedText--;
+		    lengthModifiedText--;
                 }
             }
             Console.WriteLine(arrayText);
