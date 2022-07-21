@@ -29,12 +29,16 @@ namespace ConsoleApp
             {
                 if (arrayText[i] == ' ')
                 {
-                    arrayText[--lengthModifiedText] = '0';
-                    arrayText[--lengthModifiedText] = '2';
-                    arrayText[--lengthModifiedText] = '%';
+                    arrayText[lengthModifiedText - 1] = '0';
+                    arrayText[lengthModifiedText - 2] = '2';
+                    arrayText[lengthModifiedText - 3] = '%';
+					lengthModifiedText -= 3;
                 }
                 else
-                    arrayText[--lengthModifiedText] = arrayText[i];
+                {
+                    arrayText[lengthModifiedText - 1] = arrayText[i];
+					lengthModifiedText--;
+                }
             }
             Console.WriteLine(arrayText);
         }
