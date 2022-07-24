@@ -45,8 +45,8 @@ namespace ConsoleApp
             bool isItBigger = true, isItSmaller = true;
             int numberOfOnesBigger = 0, numberOfOnesSmaller = 0;
             string binaryNumberBigger = null, binaryNumberSmaller = null;
-
-            double numberTemp = number;
+            
+            double numberTemp = number;        
             while (numberOfOnes != numberOfOnesBigger)
             {
                 numberTemp++;
@@ -58,7 +58,7 @@ namespace ConsoleApp
                 binaryNumberBigger = BinaryNumber(numberTemp, numberOfBits);
                 numberOfOnesBigger = NumberOfOnes(numberTemp, numberOfBits);
             }
-
+            
             numberTemp = number;
             while (numberOfOnes != numberOfOnesSmaller)
             {
@@ -71,6 +71,7 @@ namespace ConsoleApp
                 binaryNumberSmaller = BinaryNumber(numberTemp, numberOfBits);
                 numberOfOnesSmaller = NumberOfOnes(numberTemp, numberOfBits);
             }
+            
             Console.WriteLine("Number given: " + BinaryNumber(number, numberOfBits));
             if (isItBigger == true)
                 Console.WriteLine("Bigger number: " + binaryNumberBigger);
