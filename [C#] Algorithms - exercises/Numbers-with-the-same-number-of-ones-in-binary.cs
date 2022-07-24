@@ -6,9 +6,10 @@ namespace ConsoleApp
 {
     class Program
     {
-        /// <summary>function that converts a decimal number to a binary number</summary>
+        /// <summary>function that converts a decimal number to a binary number</summary>      
         static string BinaryNumber(double number, int numberOfBits)
         {
+            // of course to convert a decimal number to binary you can use: Convert.ToString(number, 2)
             string binaryNumber = null;
             for (int i = numberOfBits - 1; i >= 0; i--)
             {
