@@ -52,7 +52,7 @@ namespace ConsoleApp
             return true;
         }
 
-            static void Main(string[] args)
+        static void Main(string[] args)
         {
             string textOne = "alo acb";
             string textTwo = "oal bac";
