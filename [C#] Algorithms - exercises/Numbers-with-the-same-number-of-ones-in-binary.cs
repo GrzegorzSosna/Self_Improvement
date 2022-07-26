@@ -1,15 +1,14 @@
-/* Napisz kod, który przyjmuje dodatnią liczbę całkowitą i wyświetla najbliższą mniejszą i większą 
-wartość o tej samej liczbie jedynek w reprezentacji binarnej. */
+/* Napisz kod, który przyjmuje dodatnią liczbę całkowitą i wyświetla najbliższą mniejszą i większą wartość
+o tej samej liczbie jedynek w reprezentacji binarnej. */
 using System;
 
 namespace ConsoleApp
 {
     class Program
     {
-        /// <summary>function that converts a decimal number to a binary number</summary>      
+        /// <summary>function that converts a decimal number to a binary number</summary>
         static string BinaryNumber(double number, int numberOfBits)
         {
-            // of course to convert a decimal number to binary you can use: Convert.ToString(number, 2)
             string binaryNumber = null;
             for (int i = numberOfBits - 1; i >= 0; i--)
             {
@@ -28,6 +27,10 @@ namespace ConsoleApp
         static int NumberOfOnes(double number, int numberOfBits)
         {
             int numberOfOnes = 0;
+            
+            if (number > (Math.Pow(2, numberOfBits) - 1))
+                return numberOfOnes;
+            
             for (int i = numberOfBits - 1; i >= 0; i--)
             {
                 if (number / Math.Pow(2, i) >= 1)
@@ -46,12 +49,12 @@ namespace ConsoleApp
             bool isItBigger = true, isItSmaller = true;
             int numberOfOnesBigger = 0, numberOfOnesSmaller = 0;
             string binaryNumberBigger = null, binaryNumberSmaller = null;
-            
-            double numberTemp = number;        
+
+            double numberTemp = number;
             while (numberOfOnes != numberOfOnesBigger)
             {
                 numberTemp++;
-                if (numberTemp > Math.Pow(2, numberOfBits - 1))
+                if (numberTemp > (Math.Pow(2, numberOfBits) - 1))
                 {
                     isItBigger = false;
                     break;
@@ -59,7 +62,7 @@ namespace ConsoleApp
                 binaryNumberBigger = BinaryNumber(numberTemp, numberOfBits);
                 numberOfOnesBigger = NumberOfOnes(numberTemp, numberOfBits);
             }
-            
+
             numberTemp = number;
             while (numberOfOnes != numberOfOnesSmaller)
             {
@@ -72,7 +75,6 @@ namespace ConsoleApp
                 binaryNumberSmaller = BinaryNumber(numberTemp, numberOfBits);
                 numberOfOnesSmaller = NumberOfOnes(numberTemp, numberOfBits);
             }
-            
             Console.WriteLine("Number given: " + BinaryNumber(number, numberOfBits));
             if (isItBigger == true)
                 Console.WriteLine("Bigger number: " + binaryNumberBigger);
@@ -86,12 +88,17 @@ namespace ConsoleApp
 
         static void Main(string[] args)
         {
-            int numberOfBits = 16;
+            int numberOfBits = 8;
             try
             {
                 Console.Write("Enter a positive integer: ");
                 uint number = uint.Parse(Console.ReadLine());
+                if (number > (Math.Pow(2, numberOfBits) - 1)) throw new OverflowException("Number outside the valid range.");
                 TheSameNumberOfOnes(Convert.ToDouble(number), numberOfBits);
+            }
+            catch (OverflowException e)
+            {
+                Console.WriteLine(e.Message);
             }
             catch (SystemException)
             {
