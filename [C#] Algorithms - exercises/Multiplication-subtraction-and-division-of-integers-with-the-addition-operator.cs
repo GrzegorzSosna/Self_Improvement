@@ -9,7 +9,6 @@ namespace ConsoleApp
         static int Multiplication(int numberA, int numberB)
         {
             int result = 0;
-
             // to reduce the number of iterations in the 'for' loop, substitute the variable with the smaller absolute value for numberB
             if (Math.Abs(numberA) < Math.Abs(numberB))
                 return Multiplication(numberB, numberA);
@@ -19,7 +18,7 @@ namespace ConsoleApp
 
             if (numberB < 0 && numberA > 0)
                 result = NegativeSign(result);
-            
+         
             if (numberB < 0 && numberA < 0)
                 result = Math.Abs(result);
             
@@ -29,7 +28,6 @@ namespace ConsoleApp
         static int Minus(int numberA, int numberB)
         {
             int result = 0;
-
             if (numberB > 0)
                 result = numberA + NegativeSign(numberB);
             else
@@ -41,7 +39,6 @@ namespace ConsoleApp
         static int Division(int numberA, int numberB)
         {
             if (numberB == 0) throw new DivideByZeroException("Cannot be divided by zero.");
-
             int result = 0;
             int resultSum = 0;
 
@@ -56,7 +53,7 @@ namespace ConsoleApp
 
             if (numberB > 0 && numberA < 0)
                 result = NegativeSign(result);
-
+         
             // the division result is rounded down
             return result;
         }
