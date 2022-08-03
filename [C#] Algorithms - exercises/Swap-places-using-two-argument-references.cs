@@ -31,8 +31,7 @@ namespace ConsoleApp
 	    a[0] = b[0];
 	    b[0] = t;
 	}
-
-
+	    
         static void Main(string[] args)
 	{
 	    int varA = 2, varB = 4;	
