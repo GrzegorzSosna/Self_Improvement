@@ -14,34 +14,34 @@ namespace ConsoleApp
 {
     class Program
     {		
-		static int[] InsertionSort(int[] array)
+	static int[] InsertionSort(int[] array)
+	{
+	    for (int i = 0; i < array.Length; i++)
+	    {					
+		for (int j = i; j > 0; j--)
 		{
-			for (int i = 0; i < array.Length; i++)
-			{					
-				for (int j = i; j > 0; j--)
-				{
-					if (array[j - 1] > array[j])
-					{
-						int buffor = array[j];
-						array[j] = array[j - 1];
-						array[j - 1] = buffor;
-					}
-					else break;
-				}
-			}
-			return array;
+		    if (array[j - 1] > array[j])
+		    {
+			int buffor = array[j];
+			array[j] = array[j - 1];
+			array[j - 1] = buffor;
+		    }
+		    else break;
 		}
+	    }
+	    return array;
+	}
 
         static void Main(string[] args)
         {           			
-		    int[] array = new int[10] { 3, 115, 74, 21, 45, 123, 2, 34, 85, 23 };
-			int[] sortedArray = InsertionSort(array);
+	    int[] array = new int[10] { 3, 115, 74, 21, 45, 123, 2, 34, 85, 23 };
+	    int[] sortedArray = InsertionSort(array);
 
-			Console.WriteLine("Tablica posortowana :");
-			for (int i = 0; i < 10; i++)
-			{
-				Console.WriteLine(sortedArray[i]);
-			}
+	    Console.WriteLine("Tablica posortowana :");
+	    for (int i = 0; i < 10; i++)
+	    {
+		Console.WriteLine(sortedArray[i]);
+	    }
         }		
     }
 }
