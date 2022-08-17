@@ -1,3 +1,8 @@
+/* SORTOWANIE BĄBELKOWE - (ang. Bubble Sort) pierwszy element porównujemy z drugim. Jeżeli pierwszy jest niewiększy od drugiego to pozostaje na swoim 
+miejscu. Jeżeli pierwszy jest większy, to zamieniamy go miejscami z drugim. Następnie porównujemy drugi element z trzecim, i stosujemy podobną zasadę
+jak w poprzednim porównaniu. Nastepnie porównujemy trzeci z czwartym, czwarty z piątym itd. Aż do wyczerpania wszytskich elementów tablicy. Sortowanie 
+kończy się, gdy podczas kolejnej iteracji nie dokonano żadnej zmiany. */
+
 using System;
 
 namespace ConsoleApp
