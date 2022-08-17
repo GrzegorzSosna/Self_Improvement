@@ -1,12 +1,8 @@
-/* Zasada działania tego algorytmu jest często porównywana do porządkowania kart w wachlarz podczas gry. Każdą 
-kartę wstawiamy w odpowiednie miejsce, tzn. po młodszej, ale przed starszą. 
-Podobnie jest z liczbami.
-Pierwszy element pozostaje na swoim miejscu. Następnie bierzemy drugi i sprawdzamy, w jakiej relacji jest on z 
-pierwszym. Jeśli jest niemniejszy, to zostaje na drugim miejscu, w przeciwnym wypadku wędruje na pierwsze miejsce. 
-Dalej sprawdzamy trzeci element (porównujemy go do dwóch pierwszych i wstawiamy w odpowiednie miejsce) itd. 
-Idea działania algorytmu opiera się na podziale ciągu na dwie części: pierwsza jest posortowana, druga jeszcze nie. 
-Wybieramy kolejną liczbę z drugiej części i wstawiamy ją do pierwszej. Ponieważ jest ona posortowana, to szukamy 
-dla naszej liczby takiego miejsca, aby liczba na lewo była niewiększa a liczba na prawo niemniejsza. */
+/* SORTOWANIE PRZEZ WSTAWIANIE - (ang. Insertion Sort) pierwszy element pozostaje na swoim miejscu. Następnie bierzemy drugi i sprawdzamy, w jakiej 
+relacji jest on z pierwszym. Jeśli jest niemniejszy, to zostaje na drugim miejscu, w przeciwnym wypadku wędruje na pierwsze miejsce. Dalej sprawdzamy 
+trzeci element (porównujemy go do dwóch pierwszych i wstawiamy w odpowiednie miejsce) itd. Idea działania algorytmu opiera się na podziale ciągu na 
+dwie części: pierwsza jest posortowana, druga jeszcze nie. Wybieramy kolejną liczbę z drugiej części i wstawiamy ją do pierwszej. Ponieważ jest ona 
+posortowana, to szukamy dla naszej liczby takiego miejsca, aby liczba na lewo była niewiększa a liczba na prawo niemniejsza. */
 
 using System;
 
