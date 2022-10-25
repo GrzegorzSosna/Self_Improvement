@@ -58,7 +58,7 @@ namespace ConsoleApp
             }
             else
             {
-                Console.WriteLine($"Złożoność minimalna: element {number} został odnaleziony w zbiorze {data.Length}-elementowym. " +
+                Console.WriteLine($"Złożoność minimalna: element {number} nie został odnaleziony w zbiorze {data.Length}-elementowym. " +
                     $"Liczba operacji porównania: {equalOperationCounter}");
             }
         }
@@ -74,7 +74,7 @@ namespace ConsoleApp
             }
             else
             {
-                Console.WriteLine($"Złożoność maksymalna: element {number} został odnaleziony w zbiorze {data.Length}-elementowym. " +
+                Console.WriteLine($"Złożoność maksymalna: element {number} nie został odnaleziony w zbiorze {data.Length}-elementowym. " +
                     $"Liczba operacji porównania: {equalOperationCounter}");
             }
         }
@@ -93,7 +93,7 @@ namespace ConsoleApp
                 }
                 else
                 {
-                    Console.WriteLine($"Złożoność średnia - iteracja: element {number} został odnaleziony w zbiorze {data.Length}-elementowym. " +
+                    Console.WriteLine($"Złożoność średnia - iteracja: element {number} nie został odnaleziony w zbiorze {data.Length}-elementowym. " +
                         $"Liczba operacji porównania: {equalOperationCounter}");
                 }
                 totalOperationsCounter += equalOperationCounter;
