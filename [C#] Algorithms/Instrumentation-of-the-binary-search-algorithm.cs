@@ -34,6 +34,7 @@ namespace ConsoleApp
             }
             return false;
         }
+        
         static void BinarySearchImplementation(int[] data, int number)
         {
             if (BinarySearch(data, number))
@@ -164,7 +165,7 @@ namespace ConsoleApp
                     Console.WriteLine($"Złożoność maksymalna: element {number} nie został odnaleziony w zbiorze {data.Length}-elementowym. " +
                         $"Czas operacji: {(iterationElapsedTime * (1.0 / Stopwatch.Frequency)).ToString("F10")}");
                 }
-
+                
                 elapsedTime += iterationElapsedTime;
                 if (iterationElapsedTime < minTime)
                 {
@@ -175,7 +176,6 @@ namespace ConsoleApp
                     maxTime = iterationElapsedTime;
                 }
             }
-
             elapsedTime -= (minTime + maxTime);
             double elapsedSeconds = elapsedTime * (1.0 / (iterationsNumber * Stopwatch.Frequency));
             Console.WriteLine($"Złożoność maksymalna: liczba powtórzeń: {iterationsNumber}, średni czas przebiegu operacji: {elapsedSeconds.ToString("F10")} [s], zakładając odrzucenie czasów skrajnych.");
@@ -223,7 +223,6 @@ namespace ConsoleApp
             Console.WriteLine($"Złożoność średnia: liczba powtórzeń: {iterationsNumber}, " +
                 $"średni czas przebiegu operacji: {(elapsedSeconds / data.Length).ToString("F10")} [s], zakładając odrzucenie czasów skrajnych.");
         }
-
 
         static void Main(string[] args)
         {
