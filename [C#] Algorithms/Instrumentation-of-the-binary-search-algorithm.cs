@@ -15,18 +15,18 @@ namespace ConsoleApp
 
         static bool BinarySearch(int[] vector, int number)
         {
-            int lowerLimitVector = 0;
-            int upperLimitVector = vector.Length - 1;
+            int lowerLimit = 0;
+            int upperLimit = vector.Length - 1;
             int middleElement = 0;
 
-            while (lowerLimitVector <= upperLimitVector)
+            while (lowerLimit <= upperLimit)
             {
                 equalOperationCounter++;
-                middleElement = (lowerLimitVector + upperLimitVector) / 2;
+                middleElement = (lowerLimit + upperLimit) / 2;
                 if (number < vector[middleElement])
-                    upperLimitVector = middleElement - 1;
+                    upperLimit = middleElement - 1;
                 if (number > vector[middleElement])
-                    lowerLimitVector = middleElement + 1;
+                    lowerLimit = middleElement + 1;
                 if (number == vector[middleElement])
                 {
                     return true;
