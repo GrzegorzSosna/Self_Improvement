@@ -136,7 +136,6 @@ namespace ConsoleApp
                     maxTime = iterationElapsedTime;
                 }
             }
-
             elapsedTime -= (minTime + maxTime);
             double elapsedSeconds = elapsedTime * (1.0 / (iterationsNumber * Stopwatch.Frequency));
             Console.WriteLine($"[Podsumowanie] Złożoność minimalna - liczba powtórzeń: {iterationsNumber}, średni czas przebiegu operacji: {elapsedSeconds.ToString("F10")} [s], zakładając odrzucenie czasów skrajnych.");
