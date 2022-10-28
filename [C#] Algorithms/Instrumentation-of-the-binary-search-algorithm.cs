@@ -1,8 +1,7 @@
 /* Zadanie wykonane w ramach przedmiotu "Algorytmy i struktury danych". 
-Proszę zweryfikować przedstawioną ocenę średniej i pesymistycznej złożoności wyszukiwania liniowego (10 pkt) 
-lub binarnego (20pkt). W szczególności, proszę przeprowadzić analizę za pomocą instrumentacji i pomiarów czasu. 
-W porównaniu proszę wykorzystać tablice liczb całkowitych o rozmiarze rzędu 2^30 bajtów (2^28 elementów typu 
-uint/int). */
+Proszę zweryfikować przedstawioną ocenę średniej i pesymistycznej złożoności wyszukiwania liniowego 
+lub binarnego. W szczególności, proszę przeprowadzić analizę za pomocą instrumentacji i pomiarów czasu. 
+W porównaniu proszę wykorzystać tablice liczb całkowitych o rozmiarze rzędu 2^30 bajtów (2^28 elementów typu uint/int). */
 
 using System;
 using System.Diagnostics;
