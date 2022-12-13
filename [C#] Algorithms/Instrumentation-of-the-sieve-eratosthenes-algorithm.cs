@@ -1,3 +1,12 @@
+/* Zadanie wykonane w ramach przedmiotu "Algorytmy i struktury danych". 
+Celem projektu jest zaproponowanie algorytmu określającego czy dana liczba jest liczbą pierwszą. Proszę 
+przeprowadzić analizę za pomocą instrumentacjii pomiarów czasu, przyjmując, że operacją dominującą jest 
+dzielenie modulo (%).
+Badanie proszę przeprowadzić dla następującego zbioru punktów pomiarowych (liczb pierwszych):{ 100913, 1009139, 
+10091401, 100914061, 1009140611, 10091406133, 100914061337, 1009140613399 } 
+Zadanie dodatkowe - Proszę zweryfikować za pomocą założonego algorytmu, modyfikując go odpowiednio w razie 
+konieczności, czy liczba 18870929470561300001893 jest liczba pierwszą. */
+
 using System;
 using System.Diagnostics;
 using System.Numerics;
@@ -8,22 +17,22 @@ namespace ConsoleApp
     {
         private static ulong equalOperationCounter;
 
-        static bool?[] SitoEratostenesa(uint size)
+        static bool?[] SitoEratostenesa(UInt64 size)
         {
             equalOperationCounter = 0;
             bool?[] sieve = new bool?[size + 1];
             sieve[0] = null;
             sieve[1] = null;
-            for (int i = 2; i <= size; i++)
+            for (UInt64 i = 2; i <= size; i++)
             {
                 sieve[i] = true;
             }
-            for (int i = 2; i <= Math.Sqrt(size); i++)
+            for (UInt64 i = 2; i <= Math.Sqrt(size); i++)
             {
                 equalOperationCounter++;
                 if (sieve[i] == true)
                 {
-                    int multiple = i + i;
+                    UInt64 multiple = i + i;
                     while (multiple <= size)
                     {
                         equalOperationCounter++;
@@ -35,7 +44,7 @@ namespace ConsoleApp
             return sieve;
         }
 
-        static void SitoEratostenesaCzyLiczbaPierwsza(uint number)
+        static void SitoEratostenesaCzyLiczbaPierwsza(UInt64 number)
         {
             bool?[] sieve = SitoEratostenesa(number);
             if (sieve[number] == true)
@@ -50,13 +59,9 @@ namespace ConsoleApp
 
         static void SitoEratostenesaInstrumentacja()
         {
-            uint[] data = new uint[50];
-            for (uint i = 0; i < data.Length; i++)
-            {
-                data[i] = i + 1;
-            }
+            UInt64[] data = { 100913, 1009139, 10091401, 100914061, 1009140611, 10091406133, 100914061337, 1009140613399 };
 
-            for (uint i = 0; i < 50; i++)
+            for (int i = 0; i < data.Length; i++)
             {
                 bool?[] sito = SitoEratostenesa(data[i]);
                 Console.WriteLine($"\nInstrumentacja dla liczby: {data[i]}");
@@ -76,11 +81,7 @@ namespace ConsoleApp
         static void SitoEratostenesaCzasWykonania()
         {
             double allElapsedSeconds = 0;
-            uint[] data = new uint[50];
-            for (uint i = 0; i < data.Length; i++)
-            {
-                data[i] = i + 1;
-            }
+            UInt64[] data = { 100913, 1009139, 10091401, 100914061, 1009140611, 10091406133, 100914061337, 1009140613399 };
 
             for (uint i = 0; i < data.Length; i++)
             {
@@ -92,11 +93,11 @@ namespace ConsoleApp
                 for (uint n = 0; n < (iterationsNumber + 1 + 1); ++n)
                 {
                     long startingTime = Stopwatch.GetTimestamp();
-                    bool?[] sito = SitoEratostenesa(data[i]);
+                    bool?[] sieve = SitoEratostenesa(data[i]);
                     long endingTime = Stopwatch.GetTimestamp();
                     long iterationElapsedTime = endingTime - startingTime;
 
-                    if (sito[data[i]] == true)
+                    if (sieve[data[i]] == true)
                     {
                         Console.WriteLine($"Złożoność średnia ({n + 1} iteracja) - liczba {data[i]} jest liczbą pierwszą, średni czas operacji: {(iterationElapsedTime * (1.0 / Stopwatch.Frequency)).ToString("F10")} [s]");
                     }
@@ -139,7 +140,9 @@ namespace ConsoleApp
             {
                 equalOperationCounter++;
                 if (number % i == 0)
+                {
                     return false;
+                }                 
             }
             return true;
         }
@@ -172,8 +175,8 @@ namespace ConsoleApp
 
             // Zadanie dodatkowe -> BigInteger
             Console.WriteLine($"\n\n(4) Sprawdzanie czy liczba 18870929470561300001893 jest liczbą pierwszą:\n");
-            BigInteger rozmiarBigInt = BigInteger.Parse("18870929470561300001893"); 
-            BigIntCzyLiczbaPierwsza(rozmiarBigInt);
+            BigInteger sizeBigInt = BigInteger.Parse("18870929470561300001893"); 
+            BigIntCzyLiczbaPierwsza(sizeBigInt);
         }
     }
 }
