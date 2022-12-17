@@ -59,7 +59,7 @@ namespace ConsoleApp
 
         static void SitoEratostenesaInstrumentacja()
         {
-            UInt64[] data = { 100913, 1009139, 10091401, 100914061, 1009140611, 10091406133, 100914061337, 1009140613399 };
+            UInt64[] data = { 100913, 1009139, 10091401, 100914061 }; //, 1009140611, 10091406133, 100914061337, 1009140613399 };
 
             for (int i = 0; i < data.Length; i++)
             {
@@ -81,7 +81,7 @@ namespace ConsoleApp
         static void SitoEratostenesaCzasWykonania()
         {
             double allElapsedSeconds = 0;
-            UInt64[] data = { 100913, 1009139, 10091401, 100914061, 1009140611, 10091406133, 100914061337, 1009140613399 };
+            UInt64[] data = { 100913, 1009139, 10091401, 100914061 }; //, 1009140611, 10091406133, 100914061337, 1009140613399 };
 
             for (uint i = 0; i < data.Length; i++)
             {
