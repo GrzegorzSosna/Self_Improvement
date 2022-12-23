@@ -17,9 +17,9 @@ namespace ConsoleApp
                     equalOperationCounter++;
                     if (array[j - 1] > array[j])
                     {
-                        int buffor = array[j];
+                        int bufor = array[j];
                         array[j] = array[j - 1];
-                        array[j - 1] = buffor;
+                        array[j - 1] = bufor;
                     }
                     else break;
                 }
@@ -29,52 +29,41 @@ namespace ConsoleApp
 
         static int[] HeapSort(int[] array)
         {
-            equalOperationCounter = 0;
-            int buffor = 0;
-
-            for (int i = array.Length - 1; i > 0; i--)
+            equalOperationCounter = 0;          
+           
+            for(int i = array.Length; i > 0; i--)
             {
+                int bufor;
+                int lastParent = i / 2 - 1;
                 // kopcowanie
-                int comparingChildParent = i;
-                while (comparingChildParent > 0)
+                for (int parent = lastParent; parent >= 0; parent--)
                 {
                     equalOperationCounter++;
-            
-                    if (comparingChildParent % 2 != 0)
+                    int heapSize = i;
+                    int maxIndex = parent;
+                    int leftChild = parent * 2 + 1;
+                    int rightChild = parent * 2 + 2;
+
+                    if (leftChild < heapSize && array[leftChild] > array[maxIndex])
                     {
-                        if (array[comparingChildParent] > array[(comparingChildParent + 1) / 2])
-                        {
-                            buffor = array[comparingChildParent];
-                            array[comparingChildParent] = array[(comparingChildParent + 1) / 2];
-                            array[(comparingChildParent + 1) / 2] = buffor;
-                        }
-                        comparingChildParent--;
+                        maxIndex = leftChild;
                     }
-                    else
+                    if (rightChild < heapSize && array[rightChild] > array[maxIndex])
                     {
-                        if (array[comparingChildParent] > array[comparingChildParent / 2 - 1] || array[comparingChildParent - 1] > array[comparingChildParent / 2 - 1])
-                        {
-                            if (array[comparingChildParent - 1] >= array[comparingChildParent])
-                            {
-                                buffor = array[comparingChildParent - 1];
-                                array[comparingChildParent - 1] = array[comparingChildParent / 2 - 1];
-                                array[comparingChildParent / 2 - 1] = buffor;
-                            }
-                            else
-                            {
-                                buffor = array[comparingChildParent];
-                                array[comparingChildParent] = array[comparingChildParent / 2 - 1];
-                                array[comparingChildParent / 2 - 1] = buffor;
-                            }                       
-                        }
-                        comparingChildParent -= 2;
-                    }                 
+                        maxIndex = rightChild;
+                    }
+                    if (maxIndex != parent)
+                    {
+                        bufor = array[parent];
+                        array[parent] = array[maxIndex];
+                        array[maxIndex] = bufor;
+                    }
                 }
                 // sortowanie
-                buffor = array[i];
-                array[i] = array[0];
-                array[0] = buffor;
-            }
+                bufor = array[i - 1];
+                array[i - 1] = array[0];
+                array[0] = bufor;           
+            }        
             return array;
         }
 
@@ -84,7 +73,7 @@ namespace ConsoleApp
             int[] sortedArray = new int[size];
             Console.WriteLine("\n-> Tablica liczb generowanych w postaci LOSOWEJ");
             Random numberRnd = new Random();
-            Console.WriteLine("\nTablica nieposortowana:");
+            Console.Write("\nTablica nieposortowana: ");
             for (int i = 0; i < array.Length; i++)
             {
                 array[i] = numberRnd.Next(1, array.Length + 1);
@@ -97,7 +86,7 @@ namespace ConsoleApp
             if (selectedAlgorithm == 3)
                 sortedArray = HeapSort(array);
 
-            Console.WriteLine("\nTablica posortowana:");
+            Console.Write("\nTablica posortowana: ");
             for (int i = 0; i < sortedArray.Length; i++)
             {
                 Console.Write(sortedArray[i]);
@@ -112,7 +101,7 @@ namespace ConsoleApp
             int[] array = new int[size];
             int[] sortedArray = new int[size];
             Console.WriteLine("\n-> Tablica liczb generowanych w postaci ROSNĄCEJ");
-            Console.WriteLine("\nTablica nieposortowana:");
+            Console.Write("\nTablica nieposortowana: ");
             for (int i = 0; i < array.Length; i++)
             {
                 array[i] = i + 1;
@@ -125,7 +114,7 @@ namespace ConsoleApp
             if (selectedAlgorithm == 3)
                 sortedArray = HeapSort(array);
 
-            Console.WriteLine("\nTablica posortowana:");
+            Console.Write("\nTablica posortowana: ");
             for (int i = 0; i < sortedArray.Length; i++)
             {
                 Console.Write(sortedArray[i]);
@@ -140,7 +129,7 @@ namespace ConsoleApp
             int[] array = new int[size];
             int[] sortedArray = new int[size];
             Console.WriteLine("\n-> Tablica liczb generowanych w postaci MALEJĄCEJ");
-            Console.WriteLine("\nTablica nieposortowana:");
+            Console.Write("\nTablica nieposortowana: ");
             for (int i = 0; i < array.Length; i++)
             {
                 array[i] = array.Length - i;
@@ -153,7 +142,7 @@ namespace ConsoleApp
             if (selectedAlgorithm == 3)
                 sortedArray = HeapSort(array);
 
-            Console.WriteLine("\nTablica posortowana:");
+            Console.Write("\nTablica posortowana: ");
             for (int i = 0; i < sortedArray.Length; i++)
             {
                 Console.Write(sortedArray[i]);
@@ -168,7 +157,7 @@ namespace ConsoleApp
             int[] array = new int[size];
             int[] sortedArray = new int[size];
             Console.WriteLine("\n-> Tablica liczb generowanych w postaci STAŁEJ");
-            Console.WriteLine("\nTablica nieposortowana:");
+            Console.Write("\nTablica nieposortowana: ");
             for (int i = 0; i < array.Length; i++)
             {
                 array[i] = array.Length / 2;
@@ -181,7 +170,7 @@ namespace ConsoleApp
             if (selectedAlgorithm == 3)
                 sortedArray = HeapSort(array);
 
-            Console.WriteLine("\nTablica posortowana:");
+            Console.Write("\nTablica posortowana: ");
             for (int i = 0; i < sortedArray.Length; i++)
             {
                 Console.Write(sortedArray[i]);
@@ -196,7 +185,7 @@ namespace ConsoleApp
             int[] array = new int[size];
             int[] sortedArray = new int[size];
             Console.WriteLine("\n-> Tablica liczb generowanych w postaci V-KSZTAŁTNEJ");
-            Console.WriteLine("\nTablica nieposortowana:");
+            Console.Write("\nTablica nieposortowana: ");
             int numberRnd = array.Length / 2 + 1;
             for (int i = 0; i < array.Length; i++)
             {
@@ -214,7 +203,7 @@ namespace ConsoleApp
             if (selectedAlgorithm == 3)
                 sortedArray = HeapSort(array);
 
-            Console.WriteLine("\nTablica posortowana:");
+            Console.Write("\nTablica posortowana: ");
             for (int i = 0; i < sortedArray.Length; i++)
             {
                 Console.Write(sortedArray[i]);
@@ -239,7 +228,6 @@ namespace ConsoleApp
             DecreasingData(21,3);
             FixedData(21,3);
             VData(21,3);
-
         }
     }
 }
