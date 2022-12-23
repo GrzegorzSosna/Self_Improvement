@@ -27,6 +27,57 @@ namespace ConsoleApp
             return array;
         }
 
+        static int[] HeapSort(int[] array)
+        {
+            equalOperationCounter = 0;
+            int buffor = 0;
+
+            for (int i = array.Length - 1; i > 0; i--)
+            {
+                // kopcowanie
+                int comparingChildParent = i;
+                while (comparingChildParent > 0)
+                {
+                    equalOperationCounter++;
+            
+                    if (comparingChildParent % 2 != 0)
+                    {
+                        if (array[comparingChildParent] > array[(comparingChildParent + 1) / 2])
+                        {
+                            buffor = array[comparingChildParent];
+                            array[comparingChildParent] = array[(comparingChildParent + 1) / 2];
+                            array[(comparingChildParent + 1) / 2] = buffor;
+                        }
+                        comparingChildParent--;
+                    }
+                    else
+                    {
+                        if (array[comparingChildParent] > array[comparingChildParent / 2 - 1] || array[comparingChildParent - 1] > array[comparingChildParent / 2 - 1])
+                        {
+                            if (array[comparingChildParent - 1] >= array[comparingChildParent])
+                            {
+                                buffor = array[comparingChildParent - 1];
+                                array[comparingChildParent - 1] = array[comparingChildParent / 2 - 1];
+                                array[comparingChildParent / 2 - 1] = buffor;
+                            }
+                            else
+                            {
+                                buffor = array[comparingChildParent];
+                                array[comparingChildParent] = array[comparingChildParent / 2 - 1];
+                                array[comparingChildParent / 2 - 1] = buffor;
+                            }                       
+                        }
+                        comparingChildParent -= 2;
+                    }                 
+                }
+                // sortowanie
+                buffor = array[i];
+                array[i] = array[0];
+                array[0] = buffor;
+            }
+            return array;
+        }
+
         static void RandomData(int size, int selectedAlgorithm)
         {
             int[] array = new int[size];
@@ -43,6 +94,8 @@ namespace ConsoleApp
             }
             if (selectedAlgorithm == 1)
                 sortedArray = InsertionSort(array);
+            if (selectedAlgorithm == 3)
+                sortedArray = HeapSort(array);
 
             Console.WriteLine("\nTablica posortowana:");
             for (int i = 0; i < sortedArray.Length; i++)
@@ -69,6 +122,8 @@ namespace ConsoleApp
             }
             if (selectedAlgorithm == 1)
                 sortedArray = InsertionSort(array);
+            if (selectedAlgorithm == 3)
+                sortedArray = HeapSort(array);
 
             Console.WriteLine("\nTablica posortowana:");
             for (int i = 0; i < sortedArray.Length; i++)
@@ -95,6 +150,8 @@ namespace ConsoleApp
             }
             if (selectedAlgorithm == 1)
                 sortedArray = InsertionSort(array);
+            if (selectedAlgorithm == 3)
+                sortedArray = HeapSort(array);
 
             Console.WriteLine("\nTablica posortowana:");
             for (int i = 0; i < sortedArray.Length; i++)
@@ -121,6 +178,8 @@ namespace ConsoleApp
             }
             if (selectedAlgorithm == 1)
                 sortedArray = InsertionSort(array);
+            if (selectedAlgorithm == 3)
+                sortedArray = HeapSort(array);
 
             Console.WriteLine("\nTablica posortowana:");
             for (int i = 0; i < sortedArray.Length; i++)
@@ -152,6 +211,8 @@ namespace ConsoleApp
             }
             if (selectedAlgorithm == 1)
                 sortedArray = InsertionSort(array);
+            if (selectedAlgorithm == 3)
+                sortedArray = HeapSort(array);
 
             Console.WriteLine("\nTablica posortowana:");
             for (int i = 0; i < sortedArray.Length; i++)
@@ -165,12 +226,19 @@ namespace ConsoleApp
 
         static void Main(string[] args)
         {
-            Console.WriteLine("(1) Instrumentacja algorytmu sortujacego przez wstawianie (Insertion Sort):");
+            Console.WriteLine("(1) Instrumentacja algorytmu sortującego przez wstawianie (Insertion Sort):");
             RandomData(21,1);
-            GrowingData(21, 1);
-            DecreasingData(21, 1);
-            FixedData(21, 1);
-            VData(21, 1);
+            GrowingData(21,1);
+            DecreasingData(21,1);
+            FixedData(21,1);
+            VData(21,1);
+
+            Console.WriteLine("\n\n(3) Instrumentacja algorytmu sortującego przez kopcowanie (Heap Sort):");
+            RandomData(21,3);
+            GrowingData(21,3);
+            DecreasingData(21,3);
+            FixedData(21,3);
+            VData(21,3);
 
         }
     }
