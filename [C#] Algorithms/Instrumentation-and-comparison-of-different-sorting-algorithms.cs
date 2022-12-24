@@ -29,8 +29,7 @@ namespace ConsoleApp
 
         static int[] HeapSort(int[] array)
         {
-            equalOperationCounter = 0;          
-           
+            equalOperationCounter = 0;                   
             for(int i = array.Length; i > 0; i--)
             {
                 int bufor;
@@ -67,6 +66,15 @@ namespace ConsoleApp
             return array;
         }
 
+        static int[] SelectedAlgorithm(int choice, int[] array)
+        {          
+            if (choice == 1)
+                return InsertionSort(array);
+            if (choice == 3)
+                return HeapSort(array);
+            return array;
+        }
+
         static void RandomData(int size, int selectedAlgorithm)
         {
             int[] array = new int[size];
@@ -81,10 +89,7 @@ namespace ConsoleApp
                 if (i < array.Length - 1)
                     Console.Write(", ");
             }
-            if (selectedAlgorithm == 1)
-                sortedArray = InsertionSort(array);
-            if (selectedAlgorithm == 3)
-                sortedArray = HeapSort(array);
+            sortedArray = SelectedAlgorithm(selectedAlgorithm, array);
 
             Console.Write("\nTablica posortowana: ");
             for (int i = 0; i < sortedArray.Length; i++)
@@ -109,10 +114,7 @@ namespace ConsoleApp
                 if (i < array.Length - 1)
                     Console.Write(", ");
             }
-            if (selectedAlgorithm == 1)
-                sortedArray = InsertionSort(array);
-            if (selectedAlgorithm == 3)
-                sortedArray = HeapSort(array);
+            sortedArray = SelectedAlgorithm(selectedAlgorithm, array);
 
             Console.Write("\nTablica posortowana: ");
             for (int i = 0; i < sortedArray.Length; i++)
@@ -137,10 +139,7 @@ namespace ConsoleApp
                 if (i < array.Length - 1)
                     Console.Write(", ");
             }
-            if (selectedAlgorithm == 1)
-                sortedArray = InsertionSort(array);
-            if (selectedAlgorithm == 3)
-                sortedArray = HeapSort(array);
+            sortedArray = SelectedAlgorithm(selectedAlgorithm, array);
 
             Console.Write("\nTablica posortowana: ");
             for (int i = 0; i < sortedArray.Length; i++)
@@ -165,10 +164,7 @@ namespace ConsoleApp
                 if (i < array.Length - 1)
                     Console.Write(", ");
             }
-            if (selectedAlgorithm == 1)
-                sortedArray = InsertionSort(array);
-            if (selectedAlgorithm == 3)
-                sortedArray = HeapSort(array);
+            sortedArray = SelectedAlgorithm(selectedAlgorithm, array);
 
             Console.Write("\nTablica posortowana: ");
             for (int i = 0; i < sortedArray.Length; i++)
@@ -198,10 +194,7 @@ namespace ConsoleApp
                 if (i < array.Length - 1)
                     Console.Write(", ");
             }
-            if (selectedAlgorithm == 1)
-                sortedArray = InsertionSort(array);
-            if (selectedAlgorithm == 3)
-                sortedArray = HeapSort(array);
+            sortedArray = SelectedAlgorithm(selectedAlgorithm, array);
 
             Console.Write("\nTablica posortowana: ");
             for (int i = 0; i < sortedArray.Length; i++)
@@ -215,19 +208,21 @@ namespace ConsoleApp
 
         static void Main(string[] args)
         {
+            // funkcja(wielkość danych, rodzaj algorytmu)
+            // 1-> Insertion Sort, 3-> Heap Sort
             Console.WriteLine("(1) Instrumentacja algorytmu sortującego przez wstawianie (Insertion Sort):");
-            RandomData(21,1);
-            GrowingData(21,1);
-            DecreasingData(21,1);
-            FixedData(21,1);
-            VData(21,1);
+            RandomData(21, 1);
+            GrowingData(21, 1);
+            DecreasingData(21, 1);
+            FixedData(21, 1);
+            VData(21, 1);
 
             Console.WriteLine("\n\n(3) Instrumentacja algorytmu sortującego przez kopcowanie (Heap Sort):");
-            RandomData(21,3);
-            GrowingData(21,3);
-            DecreasingData(21,3);
-            FixedData(21,3);
-            VData(21,3);
+            RandomData(21, 3);
+            GrowingData(21, 3);
+            DecreasingData(21, 3);
+            FixedData(21, 3);
+            VData(21, 3);
         }
     }
 }
