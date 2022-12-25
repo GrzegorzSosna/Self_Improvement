@@ -208,7 +208,7 @@ namespace ConsoleApp
 
         static void Main(string[] args)
         {
-            // funkcja(wielkość danych, rodzaj algorytmu)
+            // funkcja->sposób tworzenia struktury danych(wielkość danych, rodzaj algorytmu)
             // 1-> Insertion Sort, 3-> Heap Sort
             Console.WriteLine("(1) Instrumentacja algorytmu sortującego przez wstawianie (Insertion Sort):");
             RandomData(21, 1);
