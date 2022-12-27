@@ -6,32 +6,31 @@ namespace ConsoleApp
     class Program
     {
         private static ulong equalOperationCounter;
-        private static int limit;
 
         static int[] QuickSort(int[] array, int pivot)
         {
             equalOperationCounter = 0;
             int bufor;
-            limit = 0;
-            int bottomElement = 0, topElement = array.Length - 1;
+            int border = 0;
+            int leftElement = 0, rightElement = array.Length - 1;
          
             while (equalOperationCounter < 5) // testowanie
             {
                 // wyznaczanie granicy -> dzielenie problemu na dwa podproblemy
-                for (int i = bottomElement; i < topElement; i++)
+                for (int i = leftElement; i < rightElement; i++)
                 {
                     equalOperationCounter++;
                     if (array[i] < array[pivot])
                     {
                         bufor = array[i];
-                        array[i] = array[limit];
-                        array[limit] = bufor;
-                        limit++;
+                        array[i] = array[border];
+                        array[border] = bufor;
+                        border++;
                     }
                 }
                 bufor = array[pivot];
-                array[pivot] = array[limit];
-                array[limit] = bufor;             
+                array[pivot] = array[border];
+                array[border] = bufor;             
             }
             return array;
         }
@@ -67,7 +66,7 @@ namespace ConsoleApp
                 if (i < array.Length - 1)
                     Console.Write(", ");
             }
-            Console.WriteLine("\nLiczba operacji potrzebnych do posortowania tablicy: " + equalOperationCounter + " " + limit);
+            Console.WriteLine("\nLiczba operacji potrzebnych do posortowania tablicy: " + equalOperationCounter);
         }
 
         static void VData(int size, int selectedAlgorithm)
