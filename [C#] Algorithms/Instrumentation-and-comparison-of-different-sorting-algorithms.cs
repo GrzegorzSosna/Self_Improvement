@@ -27,6 +27,28 @@ namespace ConsoleApp
             return array;
         }
 
+        static int[] SelectionSort(int[] array)
+        {
+            equalOperationCounter = 0;
+            int bufor;
+            for (int i = 0; i <= array.Length - 1; i++)
+            {
+                int smallest = i;
+                for (int j = i + 1; j <= array.Length - 1; j++)
+                {
+                    equalOperationCounter++;
+                    if (array[j] < array[smallest])
+                    {
+                        smallest = j;
+                    }
+                }
+                bufor = array[smallest];
+                array[smallest] = array[i];
+                array[i] = bufor;
+            }
+            return array;
+        }
+
         static int[] HeapSort(int[] array)
         {
             equalOperationCounter = 0;
@@ -70,6 +92,8 @@ namespace ConsoleApp
         {
             if (choice == 1)
                 return InsertionSort(array);
+            if (choice == 2)
+                return SelectionSort(array);
             if (choice == 3)
                 return HeapSort(array);
             return array;
@@ -164,6 +188,13 @@ namespace ConsoleApp
                 DecreasingData(arraysSizes, 1);
                 FixedData(arraysSizes, 1);
                 VData(arraysSizes, 1);
+
+                Console.WriteLine("\n(2) SELECTION SORT -> instrumentacja algorytmu sortującego przez wybieranie");
+                RandomData(arraysSizes, 2);
+                GrowingData(arraysSizes, 2);
+                DecreasingData(arraysSizes, 2);
+                FixedData(arraysSizes, 2);
+                VData(arraysSizes, 2);
 
                 Console.WriteLine("\n(3) HEAP SORT -> instrumentacja algorytmu sortującego przez kopcowanie");
                 RandomData(arraysSizes, 3);
