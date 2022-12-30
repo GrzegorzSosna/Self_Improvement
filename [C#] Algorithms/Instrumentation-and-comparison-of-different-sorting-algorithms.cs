@@ -180,8 +180,7 @@ namespace ConsoleApp
             for (int arraysSizes = 100; arraysSizes <= 500; arraysSizes += 100)
             {
                 Console.WriteLine($"\n----- TABLICA {arraysSizes}-ELEMENTOWA -----");
-                // funkcja->sposób tworzenia struktury danych(wielkość danych, rodzaj algorytmu)
-                // 1-> Insertion Sort, 3-> Heap Sort
+                // 1-> Insertion Sort, 2-> Selection Sort, 3-> Heap Sort
                 Console.WriteLine("\n(1) INSERTION SORT -> instrumentacja algorytmu sortującego przez wstawianie");
                 RandomData(arraysSizes, 1);
                 GrowingData(arraysSizes, 1);
