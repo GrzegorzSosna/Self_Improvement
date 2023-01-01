@@ -88,6 +88,45 @@ namespace ConsoleApp
             return array;
         }
 
+
+        static int[] CocktailSort(int[] array)
+        {
+            equalOperationCounter = 0;
+            int left = 1;
+            int right = array.Length - 1;
+            int lastChangePosition = array.Length - 1;
+
+            while (left <= right)
+            {
+                for (int j = right; j >= left; j--)
+                {
+                    equalOperationCounter++;
+                    if (array[j - 1] > array[j])
+                    {
+                        int bufor = array[j - 1];
+                        array[j - 1] = array[j];
+                        array[j] = bufor;
+                        lastChangePosition = j;
+                    }
+                }
+
+                left = lastChangePosition + 1; 
+                for (int j = left; j <= right; j++)
+                {
+                    equalOperationCounter++;
+                    if (array[j - 1] > array[j])
+                    {
+                        int bufor = array[j - 1];
+                        array[j - 1] = array[j];
+                        array[j] = bufor;
+                        lastChangePosition = j;
+                    }
+                }
+                right = lastChangePosition - 1; 
+            }
+            return array;
+        } 
+
         static int[] SelectedAlgorithm(int choice, int[] array)
         {
             if (choice == 1)
@@ -96,6 +135,8 @@ namespace ConsoleApp
                 return SelectionSort(array);
             if (choice == 3)
                 return HeapSort(array);
+            if (choice == 4)
+                return CocktailSort(array);
             return array;
         }
 
@@ -179,8 +220,8 @@ namespace ConsoleApp
         {
             for (int arraysSizes = 100; arraysSizes <= 500; arraysSizes += 100)
             {
-                Console.WriteLine($"\n----- TABLICA {arraysSizes}-ELEMENTOWA -----");
-                // 1-> Insertion Sort, 2-> Selection Sort, 3-> Heap Sort
+                Console.WriteLine($"\n---------- TABLICA {arraysSizes}-ELEMENTOWA ----------");
+                // 1-> Insertion Sort, 2-> Selection Sort, 3-> Heap Sort, 4-> Cocktail Sort
                 Console.WriteLine("\n(1) INSERTION SORT -> instrumentacja algorytmu sortującego przez wstawianie");
                 RandomData(arraysSizes, 1);
                 GrowingData(arraysSizes, 1);
@@ -201,6 +242,13 @@ namespace ConsoleApp
                 DecreasingData(arraysSizes, 3);
                 FixedData(arraysSizes, 3);
                 VData(arraysSizes, 3);
+
+                Console.WriteLine("\n(4) COCKTAIL SORT -> instrumentacja algorytmu sortowania koktailowego");
+                RandomData(arraysSizes, 4);
+                GrowingData(arraysSizes, 4);
+                DecreasingData(arraysSizes, 4);
+                FixedData(arraysSizes, 4);
+                VData(arraysSizes, 4);
             }
         }
     }
