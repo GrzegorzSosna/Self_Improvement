@@ -14,7 +14,7 @@ namespace ConsoleApp
             int border = 0;
             int leftElement = 0, rightElement = array.Length - 1;
          
-            while (equalOperationCounter < 5) // testowanie
+            while (equalOperationCounter < 10) // testowanie
             {
                 // wyznaczanie granicy -> dzielenie problemu na dwa podproblemy
                 for (int i = leftElement; i < rightElement; i++)
