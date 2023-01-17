@@ -1,3 +1,10 @@
+/* Zadanie wykonane w ramach przedmiotu "Algorytmy i struktury danych". 
+Celem projektu jest porównanie szybkości działania algorytmu quicksort w postaci: 
+▪ iteracyjnej
+▪ rekurencyjnej
+dla dowolnego ciągu losowego oraz A-kształtnego (np. ciąg 2, 3, 5, 4, 3, 2) oraz dla pivota wybranego kolejno w następujący sposób: 
+skrajnie prawy element, środkowy element, losowy element. */
+
 using System;
 using System.Diagnostics;
 
