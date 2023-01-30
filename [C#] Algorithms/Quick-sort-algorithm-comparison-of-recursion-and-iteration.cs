@@ -101,7 +101,15 @@ namespace ConsoleApp
 
         // wybór algorytmu sortowania
         static int[] SelectedAlgorithm(int choice, int[] array)
-        {         
+        {
+            // wybór pivota
+            int leftElement = 0;
+            int rightElement = array.Length - 1;
+            int middlePivot = array[(leftElement + rightElement) / 2];
+            int rightmostPivot = array[rightElement];
+            Random rnd = new Random();
+            int randomPivot = rnd.Next(array.Length);
+
             if (choice == 1)
                 return QuickSortIteration(array);
             if (choice == 2)
