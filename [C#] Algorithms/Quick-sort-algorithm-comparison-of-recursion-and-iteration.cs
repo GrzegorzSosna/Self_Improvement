@@ -12,6 +12,7 @@ namespace ConsoleApp
     {
         private static ulong equalOperationCounter;
 
+        // iteracyjna implementacja sortowania Quick Sort 
         static int[] QuickSortIteration(int[] array)
         {
             equalOperationCounter = 0;
@@ -64,6 +65,7 @@ namespace ConsoleApp
             return array;
         }
 
+        // rekurencyjna implementacja sortowania Quick Sort 
         static int[] QuickSortRecursion(int[] array, int l, int p)
         {
             int i, j;
@@ -95,8 +97,9 @@ namespace ConsoleApp
                 QuickSortRecursion(array, i, p);
 
             return array;
-        } 
+        }
 
+        // wybór algorytmu sortowania
         static int[] SelectedAlgorithm(int choice, int[] array)
         {         
             if (choice == 1)
@@ -109,6 +112,7 @@ namespace ConsoleApp
             return array;
         }
 
+        // generowanie tablicy w postaci losowej
         static void RandomData(int size, int selectedAlgorithm)
         {
             int[] array = new int[size];
@@ -135,6 +139,7 @@ namespace ConsoleApp
             Console.WriteLine("\nLiczba operacji potrzebnych do posortowania tablicy: " + equalOperationCounter);
         }
 
+        // generowanie tablicy w postaci V-kształtnej
         static void VData(int size, int selectedAlgorithm)
         {
             int[] array = new int[size];
@@ -177,4 +182,3 @@ namespace ConsoleApp
         }
     }
 }
-
