@@ -99,7 +99,7 @@ namespace ConsoleApp
             return array;
         }
 
-        // wybór algorytmu sortowania
+        // wybór algorytmu sortowania oraz pivota
         static int[] SelectedAlgorithm(int choice, int[] array)
         {
             // wybór pivota
