@@ -12,39 +12,100 @@ namespace ConsoleApp
     {
         private static ulong equalOperationCounter;
 
-        static int[] QuickSort(int[] array, int pivot)
+        static int[] QuickSortIteration(int[] array)
         {
             equalOperationCounter = 0;
-            int bufor;
+            int leftElement, rightElement;
+            int[] stackLeft = new int[array.Length];
+            int[] stackRight = new int[array.Length];
             int border = 0;
-            int leftElement = 0, rightElement = array.Length - 1;
-         
-            while (equalOperationCounter < 10) // testowanie
+            stackLeft[border] = 0;
+            stackRight[border] = array.Length - 1;
+
+            while (border >= 0)
             {
-                // wyznaczanie granicy -> dzielenie problemu na dwa podproblemy
-                for (int i = leftElement; i < rightElement; i++)
+                leftElement = stackLeft[border];
+                rightElement = stackRight[border];
+                border--;
+
+                while (leftElement < rightElement)
                 {
-                    equalOperationCounter++;
-                    if (array[i] < array[pivot])
+                    int i = leftElement;
+                    int j = rightElement;
+                    int pivot = array[(leftElement + rightElement) / 2];
+
+                    while (i <= j)
                     {
-                        bufor = array[i];
-                        array[i] = array[border];
-                        array[border] = bufor;
+                        equalOperationCounter++;
+                        while (array[i] < pivot)
+                            i++;
+                        while (pivot < array[j])
+                            j--;
+
+                        if (i <= j)
+                        {                          
+                            int bufor = array[i];
+                            array[i] = array[j];
+                            array[j] = bufor;
+                            i++;
+                            j--;
+                        }
+                    };
+
+                    if (i < rightElement)
+                    {
                         border++;
+                        stackLeft[border] = i;
+                        stackRight[border] = rightElement;
                     }
-                }
-                bufor = array[pivot];
-                array[pivot] = array[border];
-                array[border] = bufor;             
-            }
+                    rightElement = j;
+                };
+            };
             return array;
         }
 
-        static int[] SelectedAlgorithm(int choice, int[] array)
+        static int[] QuickSortRecursion(int[] array, int l, int p)
         {
-            // pivot -> ostatni element tablicy
+            int i, j;
+            i = l;
+            j = p;
+            int pivot = array[(l + p) / 2]; 
+
+            do
+            {
+                equalOperationCounter++;
+                while (array[i] < pivot)
+                    i++;
+                while (pivot < array[j])
+                    j--;
+                if (i <= j)
+                {
+                    int bufor = array[i];
+                    array[i] = array[j];
+                    array[j] = bufor;
+                    i++;
+                    j--;
+                }
+            }
+            while (i <= j);
+
+            if (l < j)
+                QuickSortRecursion(array, l, j);
+            if (i < p)
+                QuickSortRecursion(array, i, p);
+
+            return array;
+        } 
+
+        static int[] SelectedAlgorithm(int choice, int[] array)
+        {         
             if (choice == 1)
-                return QuickSort(array, array.Length - 1);
+                return QuickSortIteration(array);
+            if (choice == 2)
+            {
+                equalOperationCounter = 0;
+                return QuickSortRecursion(array, 0, array.Length - 1);
+            }             
             return array;
         }
 
@@ -106,9 +167,14 @@ namespace ConsoleApp
 
         static void Main(string[] args)
         {
-            Console.WriteLine("(1) Instrumentacja algorytmu Quick Sort:");
+            Console.WriteLine("(1) Instrumentacja algorytmu Quick Sort - implementacja iteracyjna:");
             RandomData(21, 1);
-            //VData(21, 1);
+            VData(21, 1);
+
+            Console.WriteLine("\n\n(2) Instrumentacja algorytmu Quick Sort - implementacja rekurencyjna:");
+            RandomData(21, 2);
+            VData(21, 2);
         }
     }
 }
+
