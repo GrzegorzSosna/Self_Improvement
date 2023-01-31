@@ -1,6 +1,6 @@
 /* Zadanie wykonane w ramach przedmiotu "Algorytmy i struktury danych". 
 Celem projektu jest porównanie szybkości działania algorytmu quicksort w postaci iteracyjnej oraz rekurencyjnej dla dowolnego 
-ciągu losowego oraz A-kształtnego (np. ciąg 2, 3, 5, 4, 3, 2) oraz dla pivota wybranego kolejno w następujący sposób: 
+ciągu losowego oraz V-kształtnego (np. ciąg 2, 3, 5, 4, 3, 2) oraz dla pivota wybranego kolejno w następujący sposób: 
 skrajnie prawy element, środkowy element, losowy element. */
 
 using System;
